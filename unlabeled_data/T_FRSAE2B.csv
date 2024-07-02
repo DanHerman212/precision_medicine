@@ -1,0 +1,354 @@
+PATIENTNUMBER,SITE,VISIT,PATIENTID,VISITID,SEQNUM_UNIT,SEQNUM_NORM,VSDTAE,SAE014A,SAE014B,SAE014C,VSDTAE_DT,patdeid
+,,CAS,,15115,,,,Methergine .2 mg TAB,6 TAB total; 1 TAB every 6-8 hours as needed,oral,,00028
+,,CAS,,15115,,,,Ibuprofen 400 mg TAB,12 TAB total; take 1 every 4-6 hours as needed,oral,,00028
+,,CAS,,15115,,,,Doxycycline 100 mg TAB,14 TAB total; 1 TAB twice a day after breakfast and dinner until gone,oral,,00028
+,,CAS,,15115,,,,Metronidazole 250 mg TAB,10 TAB total; 1 TAB twice a day after breakfast and lunch until gone,oral,,00028
+,,CAS,,15115,,1,,,,,46,00028
+,,CAS,,15115,,,,vicodin,"500mg-5mg, 1-2 Q 4-6 hours",oral,,00076
+,,CAS,,15115,,1,,,,,181,00076
+,,CAS,,15115,,,,Vancomycin,Info not provied,I/V,,00109
+,,CAS,,15115,,,,Zosyn,Info not provided,I/V,,00109
+,,CAS,,15115,,,,Hydromorphone,1 mg,I/M,,00109
+,,CAS,,15115,,1,,,,,248,00109
+,,CAS,,15115,,,,Levofloxacin,500 mg,PO,,00116
+,,CAS,,15115,,1,,,,,80,00116
+,,CAS,,15115,,,,protonix,40mg,p.o.,,00227
+,,CAS,,15115,,,,amoxicillin,1 gram,po,,00227
+,,CAS,,15115,,,,biaxin,500mg,PO,,00227
+,,CAS,,15115,,8,,,,,23,00227
+,,CAS,,15115,,,,Docusate,1 capsule,P O,,00252
+,,CAS,,15115,,,,Lisinopril,40 mg,P O,,00252
+,,CAS,,15115,,,,Methadone,60 mg,P O,,00252
+,,CAS,,15115,,1,,,,,225,00252
+,,CAS,,15115,,,,heparin,unknown,unknown,,00275
+,,CAS,,15115,,,,valium,unknown,IV,,00275
+,,CAS,,15115,,1,,,,,98,00275
+,,CAS,,15115,,,,multivitamin,1 tablet daily,po,,00371
+,,CAS,,15115,,,,omeprazole,20mg daily,po,,00371
+,,CAS,,15115,,,,lisinopril,10mg daily,po,,00371
+,,CAS,,15115,,,,hepatitis A/B vaccination,1 injection x 1 on 11.18.09,IM,,00371
+,,CAS,,15115,,1,,,,,97,00371
+,,CAS,,15115,,,,"benadryl,metoclopramide,morphine,vancomycin/dextrose,lactated ringers,vicodin,docusate,senna.","25-50mgq6hrprn,10mgq6hrprn,1-4mgq2hrprn,1gmq12hr,1000ml,5/500mgq4hrprn,250mgbid,2tabsqhs.","IV,IV,IV,IV,IV,PO,PO.",,00430
+,,CAS,,15115,,1,,,,,100,00430
+,,CAS,,15115,,,,Albuterol inhaler,2 Puffs,Inhalation,,00474
+,,CAS,,15115,,,,Dilaudid,4 mg,P.O,,00474
+,,CAS,,15115,,,,Ibuprofen,600 mg,P.O,,00474
+,,CAS,,15115,,,,Flagyl,500 mg,P.O,,00474
+,,CAS,,15115,,,,Azithromycin,250 mg,P.O,,00474
+,,CAS,,15115,,1,,,,,123,00474
+,,CAS,,15115,,,,ertapenem,unknown,intravenous,,00530
+,,CAS,,15115,,,,Dilaudid,unknown,Intravenously,,00530
+,,CAS,,15115,,1,,,,,118,00530
+,,CAS,,15115,,,,indomethacin,50 mg tid,oral,,00537
+,,CAS,,15115,,,,tramadol,50 mg tid,oral,,00537
+,,CAS,,15115,,,,cymbalta (duloxetine),30 mg qam,oral,,00537
+,,CAS,,15115,,1,,,,,141,00537
+,,CAS,,15115,,,,cymbalta (duloxetine),30mg qam,oral,,00537
+,,CAS,,15115,,,,indomethacin,50mg tid,oral,,00537
+,,CAS,,15115,,,,tramadol,50mg tid,oral,,00537
+,,CAS,,15115,,2,,,,,141,00537
+,,CAS,,15115,,1,,,,,96,00570
+,,CAS,,15115,,,,Methadone HCl,45,PO,,00671
+,,CAS,,15115,,1,,,,,175,00671
+,,CAS,,15115,,,,Woman's Ultra Mega Multivitamin,1 tab daily,PO,,00671
+,,CAS,,15115,,,,hydromorphone (Dilaudid),1 mg,Injection,,00671
+,,CAS,,15115,,,,morphine,1 tablet,oral,,00671
+,,CAS,,15115,,,,ondansetron (Zofran),32mg/50ml infusion,intravenous,,00671
+,,CAS,,15115,,,,propoxyphene (Darvon),1 tab every 4-6 hours as needed,oral,,00671
+,,CAS,,15115,,2,,,,,281,00671
+,,CAS,,15115,,,,levothyroxine,75 mcg,Oral,,00678
+,,CAS,,15115,,,,Gemfibrozil,600 mg,oral,,00678
+,,CAS,,15115,,,,Metformin,500 mg,oral,,00678
+,,CAS,,15115,,,,Aspirin,81 mg,oral,,00678
+,,CAS,,15115,,1,,,,,98,00678
+,,CAS,,15115,,,,lisinopril,1 tablet,po,,00680
+,,CAS,,15115,,,,metformin,500 mg,po,,00680
+,,CAS,,15115,,,,aspart (NovoLog),10U,SC,,00680
+,,CAS,,15115,,,,insulin glargine (Lantus),100 U/mL,SC,,00680
+,,CAS,,15115,,,,insulin glargine (Lantus),22 U/mL,SC,,00680
+,,CAS,,15115,,1,,,,,111,00680
+,,CAS,,15115,,,,lisinopril,1 tablet,PO,,00680
+,,CAS,,15115,,,,metformin,500mg,PO,,00680
+,,CAS,,15115,,,,aspart (Novolog),10 Units,SC,,00680
+,,CAS,,15115,,,,insulin glargine (Lantus),100 U/mL,SC,,00680
+,,CAS,,15115,,,,insulin glargine (Lantus),22 U/ML,SC,,00680
+,,CAS,,15115,,2,,,,,111,00680
+,,CAS,,15115,,,,,,,,00682
+,,CAS,,15115,,,,,,,,00682
+,,CAS,,15115,,,,gabapentin,"600 mg, 2 tabs three times/day",PO,,00682
+,,CAS,,15115,,,,Lantus,70 Units subcutaneaou qd,Subcutaneous,,00682
+,,CAS,,15115,,,,Bactrim DS,"160-800 mg, 1 tablet q 12 hours",PO,,00682
+,,CAS,,15115,,,,metformin,"500 mg, two tabs twice /day",PO,,00682
+,,CAS,,15115,,,,vancomycin,1.25 gm (14mg/kg/dose) Q12H,IV,,00682
+,,CAS,,15115,,1,,,,,164,00682
+,,CAS,,15115,,1,,,,,80,00765
+,,CAS,,15115,,2,,,,,80,00765
+,,CAS,,15115,,1,,,,,247,00836
+,,CAS,,15115,,,,Medrol,1 tablet daily,PO,,00889
+,,CAS,,15115,,,,Claritan,1 tablet every 12 hours,PO,,00889
+,,CAS,,15115,,,,Zithromycin,1 tablet daily,PO,,00889
+,,CAS,,15115,,,,Lorazepam,"1 mg every 12 hours, Anxiety",PO,,00889
+,,CAS,,15115,,1,,,,,50,00889
+,,CAS,,15115,,1,,,,,112,00905
+,,CAS,,15115,,,,acetaminophen,650mg Q4H,oral,,00909
+,,CAS,,15115,,,,cast oil/balsam/tryps,56.7gm bid,topical,,00909
+,,CAS,,15115,,,,piperacillin/tazo,3.375gm,IV,,00909
+,,CAS,,15115,,,,heparin,10ml,IV,,00909
+,,CAS,,15115,,,,morphine,2mg,IV,,00909
+,,CAS,,15115,,,,sodium chloride,.9%,IV,,00909
+,,CAS,,15115,,,,oxycodone/acetaminophen,5/325mg,oral,,00909
+,,CAS,,15115,,,,vancomycin,1gm,IV,,00909
+,,CAS,,15115,,,,zolpidem,10mg,oral,,00909
+,,CAS,,15115,,1,,,,,98,00909
+,,CAS,,15115,,1,,,,,133,00934
+,,CAS,,15115,,,,,,,,00974
+,,CAS,,15115,,1,,,,,41,00974
+,,CAS,,15115,,,,heparin sodium,5000 Unit,subcutaneous,,00974
+,,CAS,,15115,,,,aspirin,80mg,PO,,00974
+,,CAS,,15115,,,,docusate sodium,100mg,PO,,00974
+,,CAS,,15115,,,,Ferrous sulfate,300mg,PO,,00974
+,,CAS,,15115,,,,hydrochlorothiazide,25 mg,PO,,00974
+,,CAS,,15115,,,,Lisinopril,40 mg,PO,,00974
+,,CAS,,15115,,,,magnesium oxide,400 mg,PO,,00974
+,,CAS,,15115,,,,methadone,70 mg,PO,,00974
+,,CAS,,15115,,,,Sodium chloride 0.9%,1000 mL,IV,,00974
+,,CAS,,15115,,2,,,,,119,00974
+,,CAS,,15115,,,,Clindamycin,1200 mg q 6 hours,IV,,00987
+,,CAS,,15115,,,,Gentamycin,490 mg qd,IV,,00987
+,,CAS,,15115,,,,Vancomycin/Dextrose 5%,"1 gram, 200 ml, q 12 hours",IV,,00987
+,,CAS,,15115,,,,Docusate,250 mg BID,PO,,00987
+,,CAS,,15115,,,,heparin,"5,000 Units  Q 8 hours",sq,,00987
+,,CAS,,15115,,,,Methadone,110 mg qd,po,,00987
+,,CAS,,15115,,,,Senna,8.6 mg qd,po,,00987
+,,CAS,,15115,,,,Acetaminophen,1300 mg q 4 hrs prn,po,,00987
+,,CAS,,15115,,,,Acetaminophen suppository,650 mg q 4 hrs prn,rectal,,00987
+,,CAS,,15115,,,,Diphenhydramine,25-50 mg q 6 hrs prn,po,,00987
+,,CAS,,15115,,,,Diphenhydramine,25-50 mg q 6 hrs prn,IV,,00987
+,,CAS,,15115,,,,Metoclopramide,5-10 mg q 6 hrs prn,IV,,00987
+,,CAS,,15115,,,,Morphine,1-5 mg q1 hr prn,IV,,00987
+,,CAS,,15115,,,,Ondansetron,4 mg q 8 hrs prn,IV,,00987
+,,CAS,,15115,,,,Oxycodone,5-20 mg q 3 hrs prn,po,,00987
+,,CAS,,15115,,,,Bactrim DS,800.00 mg bid,po,,00987
+,,CAS,,15115,,1,,,,,74,00987
+,,CAS,,15115,,,,Lisiniopril,2.5 mg,Per Orum,,01019
+,,CAS,,15115,,,,Lasix,40 mg,P. O.,,01019
+,,CAS,,15115,,,,Doxycycline,100 mg,P. O.,,01019
+,,CAS,,15115,,,,FeSo4,325 mg,P. O,,01019
+,,CAS,,15115,,,,LThyroxine,0.15 mg,P.O,,01019
+,,CAS,,15115,,,,Wellbutrin,50 mg,P.O,,01019
+,,CAS,,15115,,,,Nicotine,7 mg,Skin Patch,,01019
+,,CAS,,15115,,,,CaCo3,500 mg,P.O,,01019
+,,CAS,,15115,,1,,,,,175,01019
+,,CAS,,15115,,1,,,,,263,01034
+,,CAS,,15115,,,,methadone,60mg,oral,,01034
+,,CAS,,15115,,2,,,,,263,01034
+,,CAS,,15115,,,,methocarbamol (Robaxin),1 tablet q6h,oral,,01082
+,,CAS,,15115,,,,hydromorphone,2mg,Intravenous,,01082
+,,CAS,,15115,,,,lansoprazole (Prevacid),1 capsule daily,oral,,01082
+,,CAS,,15115,,,,omeprazole,1 capsule daily,po,,01082
+,,CAS,,15115,,1,,,,,53,01082
+,,CAS,,15115,,,,,,,,01082
+,,CAS,,15115,,,,,,,,01082
+,,CAS,,15115,,,,vancomycin,1 gm,IV,,01145
+,,CAS,,15115,,,,acetaminophen,650 mg,oral,,01145
+,,CAS,,15115,,,,oxycodone,5 mg,oral,,01145
+,,CAS,,15115,,,,doxyclycline,100 mg bid (for 14 days),oral,,01145
+,,CAS,,15115,,1,,,,,84,01145
+,,CAS,,15115,,,,Dilaudid,PRN,Intravenously,,01154
+,,CAS,,15115,,,,ativan,2 tabs daily,PO,,01154
+,,CAS,,15115,,,,Pepcid,2 tabs daily,PO,,01154
+,,CAS,,15115,,,,morphine,prn,Intravenously,,01154
+,,CAS,,15115,,,,methadone,45mg daily,PO,,01154
+,,CAS,,15115,,1,,,,,214,01154
+,,CAS,,15115,,,,Insulin NPH,14 Units.,SQ,,01169
+,,CAS,,15115,,,,Senokot,20 mgs.,po,,01169
+,,CAS,,15115,,,,famotidine,20 mgs.,po,,01169
+,,CAS,,15115,,,,doxycycline,100 mgs.,po,,01169
+,,CAS,,15115,,,,vancomycin,1 gm.,IV,,01169
+,,CAS,,15115,,,,nicotine patch,14 mgs.,transdermal,,01169
+,,CAS,,15115,,,,oxycodone/apap,5/325 mgs.,p0,,01169
+,,CAS,,15115,,,,milk of magnesia,30 ml,po,,01169
+,,CAS,,15115,,,,dilaudid,1 mg.,po,,01169
+,,CAS,,15115,,,,flagyl (metronidazole),500 mgs.,IV,,01169
+,,CAS,,15115,,,,levaquin (levofloxacin),500 mgs.,IV,,01169
+,,CAS,,15115,,,,Insulin 70/30,10 Units,SQ,,01169
+,,CAS,,15115,,,,Insulin NovoLog,5 Units,SQ,,01169
+,,CAS,,15115,,,,Pepcid (famotidine),20 mgs.,IV,,01169
+,,CAS,,15115,,,,Docusate Sodium,100 mgs.,po,,01169
+,,CAS,,15115,,,,Suboxone,24 mgs.,SL,,01169
+,,CAS,,15115,,,,dilaudid (hydromorphone),2 mg,IV,,01169
+,,CAS,,15115,,,,metoclopramide,10 mg,IV,,01169
+,,CAS,,15115,,,,diphenhydramine,25 mg,po,,01169
+,,CAS,,15115,,1,,,,,250,01169
+,,CAS,,15115,,,,Dilantin,200mgs   PO BID,200 mgs PO BID,,01194
+,,CAS,,15115,,1,,,,,71,01194
+,,CAS,,15115,,,,methylprednisolone,60 mg  Q6H,IV,,01203
+,,CAS,,15115,,,,amlodipine,10mg once/day,oral,,01203
+,,CAS,,15115,,,,isosorbide mononitrate CR,30mg once/day,oral,,01203
+,,CAS,,15115,,,,levoflaxin,500mg  once/day,oral,,01203
+,,CAS,,15115,,,,ipratropium-albuterol,3mL Q3H prn,inhalation,,01203
+,,CAS,,15115,,,,albuterol,1-2 puffs Q12H,inhalation,,01203
+,,CAS,,15115,,,,methadone,75mg once/day,oral,,01203
+,,CAS,,15115,,,,fluticasone-salmeterol,1 puff  once/day,inhalation,,01203
+,,CAS,,15115,,,,clonidine,0.1mg TID,oral,,01203
+,,CAS,,15115,,,,promethazine,12.5-25mg Q4H prn,IV,,01203
+,,CAS,,15115,,,,enoxaparin,40mg once/day,subcutaneous injection,,01203
+,,CAS,,15115,,,,senna,1 tab daily prn,oral,,01203
+,,CAS,,15115,,,,acetaminophen,1000 mg  Q6H prn,oral,,01203
+,,CAS,,15115,,,,nicotine,14mg - 1 patch daily,transdermal,,01203
+,,CAS,,15115,,,,zolpidem,5-10mg  HS prn,oral,,01203
+,,CAS,,15115,,1,,,,,112,01203
+,,CAS,,15115,,,,Wellbutrin (start July 2001-Jan 2007),"300mg, qd",PO,,01301
+,,CAS,,15115,,,,Ibuprofen,800mg prn,PO,,01301
+,,CAS,,15115,,,,Valerian root,2 capsules prn,PO,,01301
+,,CAS,,15115,,,,Wellbutrin XL (increased dose: start date somewhere in Jan 2007?),450 mg,po,,01301
+,,CAS,,15115,,1,,,,,67,01301
+,,CAS,,15115,,,,Dilaudid,Unknown,IV,,01316
+,,CAS,,15115,,,,Vicodin,1 Tablet Q6h,PO,,01316
+,,CAS,,15115,,,,Pyridium,100mg,PO,,01316
+,,CAS,,15115,,,,Vancomycin,Unknown,IV,,01316
+,,CAS,,15115,,,,Gentamycin,Unknown,IV,,01316
+,,CAS,,15115,,,,Nitrofurantoin,100mg BID,PO,,01316
+,,CAS,,15115,,,,Dilaudid,2mg Q4-6 H,PO,,01316
+,,CAS,,15115,,,,Wellbutrin,150mg daily,PO,,01316
+,,CAS,,15115,,,,Geodon,80 mg Daily,PO,,01316
+,,CAS,,15115,,,,Ambien,10mg Q6H prn,PO,,01316
+,,CAS,,15115,,,,Dulcolax suppos.,"1, prn constipation",PR,,01316
+,,CAS,,15115,,1,,,,,109,01316
+,,CAS,,15115,,,,vancomycin,1 gram,IV,,01382
+,,CAS,,15115,,,,methadone,20 mgs.,po,,01382
+,,CAS,,15115,,,,ceftriaxone,2 grams,IV,,01382
+,,CAS,,15115,,,,piperacilin-tazobactam,3.38 grams,IV,,01382
+,,CAS,,15115,,,,diphenhydramine,25 mgs.,IV,,01382
+,,CAS,,15115,,,,acetaminophen,650 mgs.,po,,01382
+,,CAS,,15115,,,,oxycodone,20 mgs.,po,,01382
+,,CAS,,15115,,,,ondansetron,4 mgs.,IV,,01382
+,,CAS,,15115,,,,fentanyl,50 mcgs.,IV,,01382
+,,CAS,,15115,,,,hydromorphone,1 mg.,IV,,01382
+,,CAS,,15115,,,,sodium chloride 0.9%,250 ml.,IV,,01382
+,,CAS,,15115,,,,nicotine,21 mgs.,transdermal,,01382
+,,CAS,,15115,,,,docusate,250 mgs.,po,,01382
+,,CAS,,15115,,,,dextrose 5% with 45% Sodium Chloride and Potassium Chloride 20 mEq/liter,1000 ml.,foot right,,01382
+,,CAS,,15115,,2,,,,,341,01382
+,,CAS,,15115,,,,docusate,250 mgs.,po,,01382
+,,CAS,,15115,,,,vancomycin,1 gram,IV,,01382
+,,CAS,,15115,,,,dextrose 5%,1000 ml.,IV,,01382
+,,CAS,,15115,,,,acetaminophen,650 mgs.,po,,01382
+,,CAS,,15115,,,,metoclopramide,10 mgs.,po,,01382
+,,CAS,,15115,,,,metoclopramide,10 mgs.,IV,,01382
+,,CAS,,15115,,,,dextrose 5%/lactated ringers,1000 ml,IV,,01382
+,,CAS,,15115,,,,hydromorphone,2 mgs.,IV,,01382
+,,CAS,,15115,,1,,,,,341,01382
+,,CAS,,15115,,,,metoprolol,100mg,XL,,01400
+,,CAS,,15115,,1,,,,,223,01400
+,,CAS,,15115,,,,lorazepam,2 mg every 6 hours,oral,,01401
+,,CAS,,15115,,1,,,,,92,01401
+,,CAS,,15115,,,,promethazine,12.5 mg,IV,,01401
+,,CAS,,15115,,2,,,,,177,01401
+,,CAS,,15115,,,,promethazine,25.00 mg every 6 hrs,oral,,01401
+,,CAS,,15115,,3,,,,,177,01401
+,,CAS,,15115,,1,,,,,84,01406
+,,CAS,,15115,,,,NARCAN,.5 mg,IV,,01479
+,,CAS,,15115,,1,,,,,105,01479
+,,CAS,,15115,,,,Prozac,60mg,PO,,01517
+,,CAS,,15115,,1,,,,,211,01517
+,,CAS,,15115,,,,atropine,gtts bid,eye drops,,01520
+,,CAS,,15115,,,,cefazolin,drops alternating with Tobramycin every hour,eye drops,,01520
+,,CAS,,15115,,,,Tobramycin,drops every hour alternating with cefazolin,eye drops,,01520
+,,CAS,,15115,,,,brimondine,drops bid,eye drops,,01520
+,,CAS,,15115,,,,xalatan,drops every evening,eye drops,,01520
+,,CAS,,15115,,,,cospot,drops 2x/day,eye drops,,01520
+,,CAS,,15115,,,,moxifloxacin,quantity unknown,oral (PO),,01520
+,,CAS,,15115,,,,oxycodone,5 mg as needed,orally,,01520
+,,CAS,,15115,,1,,,,,80,01520
+,,CAS,,15115,,1,,,,,95,01601
+,,CAS,,15115,,,,Norvasc,10 mg,oral,,01642
+,,CAS,,15115,,,,Lisinopril,yellow pill 1 per day.  Patient to inform us of dose.,oral,,01642
+,,CAS,,15115,,,,HCTZ,white pill 1 per day.  Patient to inform us of dose.,oral,,01642
+,,CAS,,15115,,,,Zocor,50 mg.,oral,,01642
+,,CAS,,15115,,1,,,,,5,01642
+,,CAS,,15115,,,,,,,,01642
+,,CAS,,15115,,,,,,,,01642
+,,CAS,,15115,,,,None,N/A,N/A,,01651
+,,CAS,,15115,,1,,,,,62,01651
+,,CAS,,15115,,,,methadone,100 mg qd,PO,,01652
+,,CAS,,15115,,,,vancomycin,1 gram,IV,,01652
+,,CAS,,15115,,,,ceftriaxone,1 dose,IV,,01652
+,,CAS,,15115,,,,nicoderm patch,14 mg,topical; transdermal,,01652
+,,CAS,,15115,,,,tylenol,650 mg  q4h prn,PO,,01652
+,,CAS,,15115,,,,colace,100 mg bid prn,PO,,01652
+,,CAS,,15115,,,,bisacodyl,10 mg  qd prn,recal suppository,,01652
+,,CAS,,15115,,,,dilaudid,2 mg q2h,IV,,01652
+,,CAS,,15115,,,,zofran,4 mg q6h prn,IV,,01652
+,,CAS,,15115,,,,alteplase,0.5 mg prn,IV,,01652
+,,CAS,,15115,,,,oxycodone,20 mg q3h prn,PO,,01652
+,,CAS,,15115,,1,,,,,308,01652
+,,CAS,,15115,,2,,,,,308,01652
+,,CAS,,15115,,3,,,,,308,01652
+,,CAS,,15115,,,,Clindamycin,300 mg :QID,P O,,01657
+,,CAS,,15115,,,,Albuterol 90 mcg,2 Puffs prn,Inhalation,,01657
+,,CAS,,15115,,,,Lactobacillus Acidoph,2 tablets: HS,P O,,01657
+,,CAS,,15115,,,,Aspirin 81mg,One tablet  O.D,P O,,01657
+,,CAS,,15115,,1,,,,,6,01657
+,,CAS,,15115,,1,,,,,140,01660
+,,CAS,,15115,,,,Maxalt (rizatriptan benzoate),5 mg prn,oral,,01671
+,,CAS,,15115,,1,,,,,26,01671
+,,CAS,,15115,,,,Methadone,60 mg,PO,,01689
+,,CAS,,15115,,,,Daptomycin,360 mg,I / V,,01689
+,,CAS,,15115,,1,,,,,136,01689
+,,CAS,,15115,,,,isophane insulin,10ml,subcutaneous,,01693
+,,CAS,,15115,,,,omeprazole,20mg,oral,,01693
+,,CAS,,15115,,,,lotensin,40mg,oral,,01693
+,,CAS,,15115,,,,keppra,500mg,oral,,01693
+,,CAS,,15115,,1,,,,,42,01693
+,,CAS,,15115,,,,isophane insulin,10ml,subcutaneous,,01693
+,,CAS,,15115,,,,omeprazole,20mg,oral,,01693
+,,CAS,,15115,,,,lotensin,40mg,oral,,01693
+,,CAS,,15115,,2,,,,,48,01693
+,,CAS,,15115,,,,Gentamycin,400mg IV,IV,,01733
+,,CAS,,15115,,,,Penicillin,"400,000 units",IV,,01733
+,,CAS,,15115,,,,Clindamycin,1200 mg,IV,,01733
+,,CAS,,15115,,,,Oxycodone,20 mg,oral,,01733
+,,CAS,,15115,,,,Fentanyl,50 mg,IV,,01733
+,,CAS,,15115,,,,Lorazepam,1 mg,IV,,01733
+,,CAS,,15115,,,,Morphine,30 mg,oral,,01733
+,,CAS,,15115,,,,Heparin gtt,1700 units/hour,IV,,01733
+,,CAS,,15115,,,,Insulin gtt,1.5 units/hour,IV,,01733
+,,CAS,,15115,,1,,,,,65,01733
+,,CAS,,15115,,1,,,,,61,01746
+,,CAS,,15115,,,,hydromorphone,1 microgram,PO,,01746
+,,CAS,,15115,,2,,,,,75,01746
+,,CAS,,15115,,,,zyprexa,"1 tablet, strength not specified",oral,,01759
+,,CAS,,15115,,,,Ibuprofen,300 mg,oral,,01759
+,,CAS,,15115,,,,Protonix,1 tablet,oral,,01759
+,,CAS,,15115,,1,,,,,3,01759
+,,CAS,,15115,,,,zyprexa,1 capsule,PO,,01759
+,,CAS,,15115,,,,ibuprofin,800 mg,PO,,01759
+,,CAS,,15115,,2,,,,,30,01759
+,,CAS,,15115,,,,Bactrim,1 tablet twice a day for 10 day course,orally,,01766
+,,CAS,,15115,,,,Vancomycin,unknown,IV,,01766
+,,CAS,,15115,,,,Percocet 5/325 mg,1 every 6 hours for 2 days (note:  patient only took 5 of 8 tablets dispensed),orally,,01766
+,,CAS,,15115,,1,,,,,223,01766
+,,CAS,,15115,,,,daptomycin,not listed,IV,,01791
+,,CAS,,15115,,,,vancomycin,,IV,,01791
+,,CAS,,15115,,,,dilaudid,,IV,,01791
+,,CAS,,15115,,,,doxycycline,100mg bid for 2 weeks,po,,01791
+,,CAS,,15115,,,,dilaudid,8mg prn,po,,01791
+,,CAS,,15115,,1,,,,,99,01791
+,,CAS,,15115,,,,Vancomycin,1 gram,250ml D5W IVPB,,01814
+,,CAS,,15115,,,,tobramycin,2mg/kg,IVPB,,01814
+,,CAS,,15115,,,,Hydromorphone,2 mg,IVPB,,01814
+,,CAS,,15115,,,,ondansetron,4 mg,IVPB,,01814
+,,CAS,,15115,,1,,,,,134,01814
+,,CAS,,15115,,,,0.9% NaCl,1000mL continuous,IV,,01814
+,,CAS,,15115,,,,heparin for adult prophylaxsis,5000 units,subcutaneous,,01814
+,,CAS,,15115,,,,levofloxacin,500mg,IV,,01814
+,,CAS,,15115,,,,linezolid,600mg,IV,,01814
+,,CAS,,15115,,,,methadone,40mg,oral,,01814
+,,CAS,,15115,,,,acetaminpphen,1000mg,oral,,01814
+,,CAS,,15115,,,,lorazepam,1mg,oral,,01814
+,,CAS,,15115,,,,ondansetron,4mg,IV,,01814
+,,CAS,,15115,,,,acetaminophen,650mg,oral,,01814
+,,CAS,,15115,,2,,,,,118,01814
+,,CAS,,15115,,,,None,N/A,N/A,,01871
+,,CAS,,15115,,1,,,,,59,01871

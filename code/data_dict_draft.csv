@@ -5,8 +5,7 @@ T_FRUDSAB.csv,Urine Drug Screen,UDS,"Drug test for 8 different drug classes, tak
 T_FRDSM.csv,DSM-IV Diagnosis,DSM,Tracks 6 different conditions
 T_FRMDH.csv,Medical and Psychiatric History,MDH,Tracks 24 different Conditions
 T_FRPEX.csv,Physical Exam,PEX,Tracks 12 different physical observations
-T_FRPBC.csv,Pregnancy and Birth Control,PBC,Tracks 2 different conditions
+T_FRPBC_BL.csv,Pregnancy and Birth Control,PBC,Tracks 2 different conditions
 T_FRTFB.csv,Timeline Follow Back Survey,TFB,"Surveys for self reported drug use, collected every 4 weeks, includes previous 30 days of use"
-T_FRABZ.csv,Alcohol Breathalyzer,ABZ,"Breathalyzer test for alcohol, taken weekly for 24 weeks"
 T_FRDOS.csv,Dose Record,DOS,Records the dose of medication taken each week for 24 weeks
 SAE.csv,Serious Adverse Events,SAE,Records any serious adverse events that occur during the study

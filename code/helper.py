@@ -221,6 +221,30 @@ def uds_features(df):
 
     return tests
 
+def med_features(df):
+    """
+    Process the medication dataframe by creating separate columns for methadone dose and buprenorphine dose,
+    filling null values with 0, and dropping unnecessary columns.
+
+    Parameters:
+    df (pandas.DataFrame): The medication dataframe.
+
+    Returns:
+    pandas.DataFrame: The processed dataframe.
+    """
+
+    # create new columns for methadone and buprenorphine dose
+    df['meds_methadone'] = df.loc[df.medication==1.0]['total_dose']
+    df['meds_buprenorphine'] = df.loc[df.medication==2.0]['total_dose']
+
+    # fill null values with 0
+    df.meds_methadone.fillna(0, inplace=True)
+    df.meds_buprenorphine.fillna(0, inplace=True)
+
+    # drop original columns to remove redundancy
+    df = df.drop(columns=['total_dose','medication'])
+
+    return df
 
 # store markdown as local variable
 markdown_table = """

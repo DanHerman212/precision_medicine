@@ -162,7 +162,9 @@ def merge_dfs(dfs):
     """
     from functools import reduce
 
-    df = reduce(lambda left, right: pd.merge(left, right, on="patdeid"), dfs)
+    df = reduce(
+        lambda left, right: pd.merge(left, right, on="patdeid", how="left"), dfs
+    )
     return df
 
 
@@ -188,7 +190,7 @@ def uds_features(df):
     ]
 
     # remove the prefix from the column names
-    tests.columns = tests.columns.str.replace("test_Opiate300_", "")
+    # tests.columns = tests.columns.str.replace("test_Opiate300_", "")
 
     # null values will be treated as positive urine tests and filled with 1.0
     tests = tests.fillna(1.0)
@@ -221,6 +223,7 @@ def uds_features(df):
 
     return tests
 
+
 def med_features(df):
     """
     Process the medication dataframe by creating separate columns for methadone dose and buprenorphine dose,
@@ -234,17 +237,18 @@ def med_features(df):
     """
 
     # create new columns for methadone and buprenorphine dose
-    df['meds_methadone'] = df.loc[df.medication==1.0]['total_dose']
-    df['meds_buprenorphine'] = df.loc[df.medication==2.0]['total_dose']
+    df["meds_methadone"] = df.loc[df.medication == 1.0]["total_dose"]
+    df["meds_buprenorphine"] = df.loc[df.medication == 2.0]["total_dose"]
 
     # fill null values with 0
     df.meds_methadone.fillna(0, inplace=True)
     df.meds_buprenorphine.fillna(0, inplace=True)
 
     # drop original columns to remove redundancy
-    df = df.drop(columns=['total_dose','medication'])
+    df = df.drop(columns=["total_dose", "medication"])
 
     return df
+
 
 # store markdown as local variable
 markdown_table = """

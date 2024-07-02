@@ -199,8 +199,9 @@ def uds_features(df):
     # create column 'CNT' (consecutive negative tests)
     tests["CNT"] = None
 
-    # convert each column into a list
-    # evaluate the values and count how many times 0.0 occurs consecutively
+    # convert each column into a list and test results into key value pairs
+    # to analyze the number of consecutive negative tests
+    # count how many times 0.0 occurs consecutively
     # update the count in tests['CNT'] column
 
     # import itertools library

@@ -3,38 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-# bulk_data_loader.py
-def load_dataframes(data_dict, path):
-    """
-    Loads data from files specified in a DataFrame and assigns each to a DataFrame,
-    returned in a dictionary with keys being the variable names.
-
-    Parameters:
-    - data_dict (pandas.DataFrame): DataFrame with columns 'Variable' and 'File Name'.
-    - path (str): Base path to the data files.
-
-    Returns:
-    dict: A dictionary with variable names as keys and loaded DataFrames as values.
-    """
-    data_frames = {}
-    for _, row in data_dict.iterrows():
-        variable_name = row["Variable"].lower()
-        file_name = row["File Name"]
-        try:
-            full_path = f"{path}{file_name}"
-            df = pd.read_csv(full_path)
-            data_frames[variable_name] = df
-            print(f"{variable_name} loaded successfully.")
-        except FileNotFoundError:
-            print(f"File {file_name} not found at {path}.")
-        except Exception as e:
-            print(f"An error occurred while loading {file_name}: {e}")
-
-    return data_frames
-
-
-# create helper function
+# clean df function
 def clean_df(df, keep_cols, rename_cols):
     """
     Clean the given DataFrame by dropping unnecessary columns, renaming columns, and reordering columns.

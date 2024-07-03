@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 # clean df function
 def clean_df(df, keep_cols, rename_cols):
     """
@@ -267,3 +268,148 @@ def markdown_table_to_df(markdown_table):
     df = pd.DataFrame(data)
 
     return df
+
+
+# create function to plot number of positive tests weekly for each drug class
+def drug_test_df(df, type, drugclass, ax=None):
+    """
+    Plots the sum of drug test results for a specific drug class.
+
+    Parameters:
+    df (DataFrame): The input DataFrame containing the drug test data.
+    type (str): The type of drug test, either 'test' or 'survey'.
+    drugclass (str): The drug class to plot the results for.
+    ax (Axes, optional): The matplotlib Axes object to plot the bar chart on. If not provided, a new Axes object will be created.
+
+    Returns:
+    ax (Axes): The matplotlib Axes object containing the bar chart.
+
+    Raises:
+    AssertionError: If the type is not 'test' or 'survey'.
+    AssertionError: If the drugclass is not one of 'Propoxyphene', 'Amphetamines', 'Methamphetamine', 'Cannabinoids', 'Benzodiazepines', 'Cocaine'.
+    """
+
+    # assert that type is either 'test' or 'survey'
+    assert type in ["test", "survey", "meds"], f"{type} not a valid type for reporting"
+
+    # assert that drugclass must be include Propoxyphene, Amphetamines,Cannabinoids, Benzodiazepines, Cocaine (not case sensitive)
+    assert drugclass in [
+        "Opiate300",
+        "Propoxyphene",
+        "Amphetamines",
+        "Methamphetamine",
+        "Cannabinoids",
+        "Benzodiazepines",
+        "Cocaine",
+        "cannabis",
+        "oxycodone",
+        "methadone",
+        "amphetamine",
+        "crystal",
+        "opiates",
+        "benzodiazepines",
+        "propoxyphene",
+        "cannabis",
+        "cocaine",
+        "oxycodone",
+        "methadone",
+        "amphetamine",
+        "methamphetamine",
+        "opiates",
+        "benzodiazepines",
+        "propoxyphene",
+        "buprenorphine",
+    ], f"{drugclass} not a valid drug class"
+
+    # subset data to patients that completed treatment
+    df = df[df["attendance"] == 25]
+
+    # create dataframe with columns for type and drug class
+    df = df[
+        [col for col in df.columns if col.startswith(type + "_") and drugclass in col]
+    ]
+
+    # remove text and leave numbers in column names
+    df.columns = [col.split("_")[-1] for col in df.columns]
+
+    # fill nan values with 0
+    df = df.fillna(0)
+
+    # replace -5.0 with 0.0
+    df = df.replace(-5.0, 0.0)
+
+    # set condition for aggregation by type
+
+    if type == "meds":
+        df = df.mean()
+    else:
+        df = df.sum()
+
+    df = pd.DataFrame(df)
+
+    df = df.rename(columns={0: f"{drugclass.lower()}"})
+
+    return df
+
+
+# create function to plot number of positive tests weekly for each drug class
+def plot_drug_tests(df, type, drugclass, ax=None):
+    """
+    Plots the sum of drug test results for a specific drug class.
+
+    Parameters:
+    df (DataFrame): The input DataFrame containing the drug test data.
+    type (str): The type of drug test, either 'test' or 'survey'.
+    drugclass (str): The drug class to plot the results for.
+    ax (Axes, optional): The matplotlib Axes object to plot the bar chart on. If not provided, a new Axes object will be created.
+
+    Returns:
+    ax (Axes): The matplotlib Axes object containing the bar chart.
+
+    Raises:
+    AssertionError: If the type is not 'test' or 'survey'.
+    AssertionError: If the drugclass is not one of 'Propoxyphene', 'Amphetamines', 'Methamphetamine', 'Cannabinoids', 'Benzodiazepines', 'Cocaine'.
+    """
+
+    # assert that type is either 'test' or 'survey'
+    assert type in ["test", "survey"], 'type must be either "test" or "survey"'
+
+    # assert that drugclass must be include Propoxyphene, Amphetamines,Cannabinoids, Benzodiazepines, Cocaine (not case sensitive)
+    assert drugclass in [
+        "Opiate300",
+        "Propoxyphene",
+        "Amphetamines",
+        "Methamphetamine",
+        "Cannabinoids",
+        "Benzodiazepines",
+        "Cocaine",
+    ], 'drugclass must be one of "Propoxyphene", "Amphetamines", "Methamphetamine", "Cannabinoids", "Benzodiazepines", "Cocaine" or "Opiate300"'
+
+    # subset data to patients that completed treatment
+    df = df[df["attendance"] == 25]
+
+    # create dataframe with columns for type and drug class
+    df = df[
+        [col for col in df.columns if col.startswith(type + "_") and drugclass in col]
+    ]
+
+    # remove text and leave numbers in column names
+    df.columns = [col.split("_")[-1] for col in df.columns]
+
+    # fill nan values with 0
+    df = df.fillna(0)
+
+    # replace -5.0 with 0.0
+    df = df.replace(-5.0, 0.0)
+
+    # plot the sum of the columns
+
+    # set condition if axis object is not passed
+    if ax is None:
+        ax = plt.gca()
+    sns.barplot(x=df.columns, y=df.sum(), ax=ax, palette="Blues_d")
+    ax.set_title(f" {drugclass} tests", fontsize=15)
+    ax.set_ylabel("Number of Positive Tests", fontsize=12)
+    ax.set_xlabel("Week", fontsize=12)
+
+    return ax

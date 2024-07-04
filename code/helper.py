@@ -451,6 +451,6 @@ def build_test_series(df, type, drugclass, med):
     df.columns = df.columns.str.replace(f"{type}_{drugclass}_", "")
 
     # convert columns to series by using sum function
-    df = df.sum().reset_index(drop=True).to_frame("tests")
+    df = df.sum().reset_index(drop=True).to_frame(f"{med}"[:3].lower())
 
     return df

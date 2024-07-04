@@ -413,3 +413,44 @@ def plot_drug_tests(df, type, drugclass, ax=None):
     ax.set_xlabel("Week", fontsize=12)
 
     return ax
+
+
+def build_test_series(df, type, drugclass, med):
+    """
+    This is a reusable function to capture columns for tests
+    of a specific drug class.  The function will apply a sum
+    aggregation and return a series for plotting.
+
+    Parameters
+    ----------
+    df : DataFrame
+        The DataFrame to filter
+    type : str
+        Eether test or survey
+    drug_class : int
+        Propoxyphene, Amphetamines, Cannabinoids, Benzodiazepines, Methadone, Oxycodone, Cocaine ,Methamphetamine, Opiate300
+    med : in
+        None, 1, 2 (1 for methadone, 2 for buprenorphine)
+
+    """
+    # subset data to patients that completed treatment
+    df = df.loc[df["dropout"] == 0]
+
+    # create condition for medication value
+    if med == "none":  # does not filter by medicaiton, shows all patients
+        pass
+    if med == "methadone":
+        df = df.loc[df["medication"] == 1]  # filters methadone patients
+    if med == "buprenorphine":
+        df = df.loc[df["medication"] == 2]  # filters buprenorphine patients
+
+    # create subset of columns for 24 opiate tests
+    df = df[[col for col in df.columns if type + "_" + drugclass in col]]
+
+    # remove text from column names for easier reading
+    df.columns = df.columns.str.replace(f"{type}_{drugclass}_", "")
+
+    # convert columns to series by using sum function
+    df = df.sum().reset_index(drop=True).to_frame("tests")
+
+    return df

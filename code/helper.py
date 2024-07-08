@@ -225,347 +225,41 @@ def med_features(df):
     return df
 
 
-# store markdown as local variable
-markdown_table = """
-    | File Name | Table Name | Variable |Description |
-    | :--- | :--- | :--- | :--- |
-    | T_FRRSA.csv | Research Session Attendance|RSA |Records attendence for each week of treatment |
-    | T_FRDEM.csv | Demographics|DEM |Sex, Ethnicity, Race |
-    | T_FRUDSAB.csv | Urine Drug Screen| UDS  |Drug test for 8 different drug classes, taken weekly for 24 weeks |
-    | T_FRDSM.csv | DSM-IV Diagnosis|DSM |Tracks 6 different conditions|
-    | T_FRMDH.csv | Medical and Psychiatric History|MDH |Tracks 24 different Conditions|
-    | T_FRPEX.csv | Physical Exam|PEX |Tracks 12 different physical observations|
-    | T_FRPBC.csv | Pregnancy and Birth Control|PBC |Tracks 2 different conditions|
-    | T_FRTFB.csv | Timeline Follow Back Survey|TFB |Surveys for self reported drug use, collected every 4 weeks, includes previous 30 days of use|
-    | T_FRABZ.csv | Alcohol Breathalyzer |ABZ |Breathalyzer test for alcohol, taken weekly for 24 weeks|
-    |T_FRDOS.csv | Dose Record |DOS |Records the dose of medication taken each week for 24 weeks|
-    |SAE.csv | Serious Adverse Events |SAE |Records any serious adverse events that occur during the study|
+def series_func(df, group):
     """
-
-
-def markdown_table_to_df(markdown_table):
-    """
-    Converts a Markdown table string into a pandas DataFrame.
+    Create series from wide dataset, by specifying the
+    data category your are looking for.
 
     Parameters:
-    - markdown_table (str): The Markdown table as a string.
+    group: str, data category
 
     Returns:
-    - pd.DataFrame: DataFrame representation of the Markdown table.
+
     """
-
-    # Split the table into rows and remove any empty lines
-    rows = [row.strip() for row in markdown_table.strip().split("\n") if row]
-
-    # Extract column names from the first row
-    columns = [col.strip() for col in rows[0].split("|") if col]
-
-    # Initialize an empty list to hold row data
-    data = []
-
-    # Iterate over the remaining rows
-    for row in rows[2:]:  # Skip the header and separator rows
-        values = [value.strip() for value in row.split("|") if value]
-        row_data = dict(zip(columns, values))
-        data.append(row_data)
-
-    # Convert the list of dictionaries to a DataFrame
-    df = pd.DataFrame(data)
-
+    # subset columns for data group specified
+    df = df[[col for col in df.columns if group in col]]
+    # remove the column names and leave the week numbers for better visualization
+    df.columns = [col.split("_")[1] if "_" in col else col for col in df.columns]
+    # create series by calling the sum aggregator on the columns
+    df = df.sum()
     return df
 
 
-# create function to plot number of positive tests weekly for each drug class
-def drug_test_df(df, type, drugclass, ax=None):
+def plot_func(series, title, ylabel, xlabel):
     """
-    Plots the sum of drug test results for a specific drug class.
+    Plot the data series.
 
     Parameters:
-    df (DataFrame): The input DataFrame containing the drug test data.
-    type (str): The type of drug test, either 'test' or 'survey'.
-    drugclass (str): The drug class to plot the results for.
-    ax (Axes, optional): The matplotlib Axes object to plot the bar chart on. If not provided, a new Axes object will be created.
+    series: pandas series, data series to plot
+    title: str, title of the plot
 
     Returns:
-    ax (Axes): The matplotlib Axes object containing the bar chart.
-
-    Raises:
-    AssertionError: If the type is not 'test' or 'survey'.
-    AssertionError: If the drugclass is not one of 'Propoxyphene', 'Amphetamines', 'Methamphetamine', 'Cannabinoids', 'Benzodiazepines', 'Cocaine'.
-    """
-
-    # assert that type is either 'test' or 'survey'
-    assert type in ["test", "survey", "meds"], f"{type} not a valid type for reporting"
-
-    # assert that drugclass must be include Propoxyphene, Amphetamines,Cannabinoids, Benzodiazepines, Cocaine (not case sensitive)
-    assert drugclass in [
-        "Opiate300",
-        "Propoxyphene",
-        "Amphetamines",
-        "Methamphetamine",
-        "Cannabinoids",
-        "Benzodiazepines",
-        "Cocaine",
-        "cannabis",
-        "oxycodone",
-        "methadone",
-        "amphetamine",
-        "crystal",
-        "opiates",
-        "benzodiazepines",
-        "propoxyphene",
-        "cannabis",
-        "cocaine",
-        "oxycodone",
-        "methadone",
-        "amphetamine",
-        "methamphetamine",
-        "opiates",
-        "benzodiazepines",
-        "propoxyphene",
-        "buprenorphine",
-    ], f"{drugclass} not a valid drug class"
-
-    # subset data to patients that completed treatment
-    df = df[df["attendance"] == 25]
-
-    # create dataframe with columns for type and drug class
-    df = df[
-        [col for col in df.columns if col.startswith(type + "_") and drugclass in col]
-    ]
-
-    # remove text and leave numbers in column names
-    df.columns = [col.split("_")[-1] for col in df.columns]
-
-    # fill nan values with 0
-    df = df.fillna(0)
-
-    # replace -5.0 with 0.0
-    df = df.replace(-5.0, 0.0)
-
-    # set condition for aggregation by type
-
-    if type == "meds":
-        df = df.mean()
-    else:
-        df = df.sum()
-
-    df = pd.DataFrame(df)
-
-    df = df.rename(columns={0: f"{drugclass.lower()}"})
-
-    return df
-
-
-# create function to plot number of positive tests weekly for each drug class
-def plot_drug_tests(df, type, drugclass, ax=None):
-    """
-    Plots the sum of drug test results for a specific drug class.
-
-    Parameters:
-    df (DataFrame): The input DataFrame containing the drug test data.
-    type (str): The type of drug test, either 'test' or 'survey'.
-    drugclass (str): The drug class to plot the results for.
-    ax (Axes, optional): The matplotlib Axes object to plot the bar chart on. If not provided, a new Axes object will be created.
-
-    Returns:
-    ax (Axes): The matplotlib Axes object containing the bar chart.
-
-    Raises:
-    AssertionError: If the type is not 'test' or 'survey'.
-    AssertionError: If the drugclass is not one of 'Propoxyphene', 'Amphetamines', 'Methamphetamine', 'Cannabinoids', 'Benzodiazepines', 'Cocaine'.
-    """
-
-    # assert that type is either 'test' or 'survey'
-    assert type in ["test", "survey"], 'type must be either "test" or "survey"'
-
-    # assert that drugclass must be include Propoxyphene, Amphetamines,Cannabinoids, Benzodiazepines, Cocaine (not case sensitive)
-    assert drugclass in [
-        "Opiate300",
-        "Propoxyphene",
-        "Amphetamines",
-        "Methamphetamine",
-        "Cannabinoids",
-        "Benzodiazepines",
-        "Cocaine",
-    ], 'drugclass must be one of "Propoxyphene", "Amphetamines", "Methamphetamine", "Cannabinoids", "Benzodiazepines", "Cocaine" or "Opiate300"'
-
-    # subset data to patients that completed treatment
-    df = df[df["attendance"] == 25]
-
-    # create dataframe with columns for type and drug class
-    df = df[
-        [col for col in df.columns if col.startswith(type + "_") and drugclass in col]
-    ]
-
-    # remove text and leave numbers in column names
-    df.columns = [col.split("_")[-1] for col in df.columns]
-
-    # fill nan values with 0
-    df = df.fillna(0)
-
-    # replace -5.0 with 0.0
-    df = df.replace(-5.0, 0.0)
-
-    # plot the sum of the columns
-
-    # set condition if axis object is not passed
-    if ax is None:
-        ax = plt.gca()
-    sns.barplot(x=df.columns, y=df.sum(), ax=ax, palette="Blues_d")
-    ax.set_title(f" {drugclass} tests", fontsize=15)
-    ax.set_ylabel("Number of Positive Tests", fontsize=12)
-    ax.set_xlabel("Week", fontsize=12)
-
-    return ax
-
-
-def build_test_series(df, type, drugclass, med):
-    """
-    This is a reusable function to capture columns for tests
-    of a specific drug class.  The function will apply a sum
-    aggregation and return a series for plotting.
-
-    Parameters
-    ----------
-    df : DataFrame
-        The DataFrame to filter
-    type : str
-        Eether test or survey
-    drug_class : int
-        Propoxyphene, Amphetamines, Cannabinoids, Benzodiazepines, Methadone, Oxycodone, Cocaine ,Methamphetamine, Opiate300
-    med : in
-        None, 1, 2 (1 for methadone, 2 for buprenorphine)
 
     """
-    # subset data to patients that completed treatment
-    df = df.loc[df["dropout"] == 0]
-
-    # create condition for medication value
-    if med == "none":  # does not filter by medicaiton, shows all patients
-        pass
-    if med == "methadone":
-        df = df.loc[df["medication"] == 1]  # filters methadone patients
-    if med == "buprenorphine":
-        df = df.loc[df["medication"] == 2]  # filters buprenorphine patients
-
-    # create subset of columns for 24 opiate tests
-    df = df[[col for col in df.columns if type + "_" + drugclass in col]]
-
-    # remove text from column names for easier reading
-    df.columns = df.columns.str.replace(f"{type}_{drugclass}_", "")
-
-    # convert columns to series by using sum function
-    df = df.sum().reset_index(drop=True).to_frame(f"{med}"[:3].lower())
-
-    return df
-
-
-def test_dataframes(df):
-    """
-    Creates a series for 4 different test groups:
-    1. Methadone patients who responded to treatment
-    2. Methadone patients who did not respond to treatment
-    3. Buprenorphine patients who responded to treatment
-    4. Buprenorphine patients who did not respond to treatment
-
-    The series will have the number of positive tests for each week of treatment
-
-    The function will then create two dataframes, one for methadone patients
-    and one for buprenorphine patients
-
-    Having the data in this structure allows for meaningful plots
-
-    Parameters:
-    df: dataframe with test data
-
-    Returns:
-    methadone: dataframe with positive test counts for methadone patients
-    buprenorphine: dataframe with positive test counts for buprenorphine patients
-    """
-    data = df
-
-    # create df for methadone users who responded to treatment
-    methadone_r = data.loc[
-        (data.dropout == 0) & (data.medication == 1) & (data.responder == 1)
-    ]
-
-    # create df for methadone users who did not respond to treatment
-    methadone_nr = data.loc[
-        (data.dropout == 0) & (data.medication == 1) & (data.responder == 0)
-    ]
-
-    # create df for buprenorphine users who responded to treatment
-    buprenorphine_r = data.loc[
-        (data.dropout == 0) & (data.medication == 2) & (data.responder == 1)
-    ]
-
-    # create df for buprenorphine users who did not respond to treatment
-    buprenorphine_nr = data.loc[
-        (data.dropout == 0) & (data.medication == 2) & (data.responder == 0)
-    ]
-
-    # create series for patients who responded to treatment
-    methadone_r = methadone_r[
-        [col for col in methadone_r.columns if "test_Opiate" in col]
-    ]
-
-    # remove 'test_Opiate300_18 from column names
-    methadone_r.columns = [
-        col.replace("test_Opiate300_", "") for col in methadone_r.columns
-    ]
-
-    # sum the number of positive tests for each week
-    methadone_r = methadone_r.sum().to_frame("met_r")
-
-    # create series for patients who did not respond to treatment
-    methadone_nr = methadone_nr[
-        [col for col in methadone_nr.columns if "test_Opiate" in col]
-    ]
-
-    # remove 'test_Opiate300 from column names
-    methadone_nr.columns = [
-        col.replace("test_Opiate300_", "") for col in methadone_nr.columns
-    ]
-
-    # sum the number of positive tests for each week
-    methadone_nr = methadone_nr.sum().to_frame("met_nr")
-
-    # combine the two series into one df
-    methadone = pd.concat([methadone_r, methadone_nr], axis=1)
-
-    # add a column for total tests
-    methadone["all"] = methadone["met_r"] + methadone["met_nr"]
-
-    # create series for patients who took buprenorphine and responded to treatment
-    buprenorphine_r = buprenorphine_r[
-        [col for col in buprenorphine_r.columns if "test_Opiate" in col]
-    ]
-
-    # remove 'test_Opiate300_18 from column names
-    buprenorphine_r.columns = [
-        col.replace("test_Opiate300_", "") for col in buprenorphine_r.columns
-    ]
-
-    buprenorphine_r = buprenorphine_r.sum().to_frame("bup_r")
-
-    # create series for patients who took buprenorphine and did not respond to treatment
-    buprenorphine_nr = buprenorphine_nr[
-        [col for col in buprenorphine_nr.columns if "test_Opiate" in col]
-    ]
-
-    # remove 'test_Opiate300_18 from column names
-    buprenorphine_nr.columns = [
-        col.replace("test_Opiate300_", "") for col in buprenorphine_nr.columns
-    ]
-
-    # sum the number of positive tests for each week
-    buprenorphine_nr = buprenorphine_nr.sum().to_frame("bup_nr")
-
-    # combine the two series into one df
-    buprenorphine = pd.concat([buprenorphine_r, buprenorphine_nr], axis=1)
-
-    # add a column for the total number of tests
-    buprenorphine["all"] = buprenorphine["bup_r"] + buprenorphine["bup_nr"]
-
-    return methadone, buprenorphine
+    fig = plt.figure(figsize=(14, 4))
+    # take input to plot in a loop with subplots
+    sns.barplot(x=series.index, y=series.values, color="gray")
+    plt.axhline(y=series.mean(), color="black", linestyle="--")
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.show(ylabel)

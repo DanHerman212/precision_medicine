@@ -143,10 +143,12 @@ def uds_features(df):
     Creates metrics used to measure outcomes from opiate test data, listed as follows:
     1) 'TNT' - Total Negative tests - counts total negative tests per patient
 
-    3) 'CNT' - Consecutive Negative tests - counts number of consecutive weeks of negative tests
+    2) 'CNT' - Consecutive Negative tests - counts number of consecutive weeks of negative tests
 
-    2) 'responder' - A responder is defined as a patient who successfully meets the abstinence window
+    3) 'responder' - A responder is defined as a patient who successfully meets the abstinence window
     with 4 consecutive clean urine tests at the final 4 weeks of treatment
+
+    4) 'NTR' - Negative Test Rate - counts the number of negative tests per patient
 
     Parameters:
     df (pandas.DataFrame): The DataFrame containing the opiates data.
@@ -167,6 +169,9 @@ def uds_features(df):
 
     # create column tnt (total negative tests) counts total negative tests for each patient
     tests["TNT"] = (tests.iloc[:, 1:] == 0.0).astype(int).sum(axis=1)
+
+    # create NTR column - negative test rate
+    tests["NTR"] = tests.TNT / 25
 
     # create column 'CNT' (consecutive negative tests)
     tests["CNT"] = None
@@ -454,3 +459,113 @@ def build_test_series(df, type, drugclass, med):
     df = df.sum().reset_index(drop=True).to_frame(f"{med}"[:3].lower())
 
     return df
+
+
+def test_dataframes(df):
+    """
+    Creates a series for 4 different test groups:
+    1. Methadone patients who responded to treatment
+    2. Methadone patients who did not respond to treatment
+    3. Buprenorphine patients who responded to treatment
+    4. Buprenorphine patients who did not respond to treatment
+
+    The series will have the number of positive tests for each week of treatment
+
+    The function will then create two dataframes, one for methadone patients
+    and one for buprenorphine patients
+
+    Having the data in this structure allows for meaningful plots
+
+    Parameters:
+    df: dataframe with test data
+
+    Returns:
+    methadone: dataframe with positive test counts for methadone patients
+    buprenorphine: dataframe with positive test counts for buprenorphine patients
+    """
+    data = df
+
+    # create df for methadone users who responded to treatment
+    methadone_r = data.loc[
+        (data.dropout == 0) & (data.medication == 1) & (data.responder == 1)
+    ]
+
+    # create df for methadone users who did not respond to treatment
+    methadone_nr = data.loc[
+        (data.dropout == 0) & (data.medication == 1) & (data.responder == 0)
+    ]
+
+    # create df for buprenorphine users who responded to treatment
+    buprenorphine_r = data.loc[
+        (data.dropout == 0) & (data.medication == 2) & (data.responder == 1)
+    ]
+
+    # create df for buprenorphine users who did not respond to treatment
+    buprenorphine_nr = data.loc[
+        (data.dropout == 0) & (data.medication == 2) & (data.responder == 0)
+    ]
+
+    # create series for patients who responded to treatment
+    methadone_r = methadone_r[
+        [col for col in methadone_r.columns if "test_Opiate" in col]
+    ]
+
+    # remove 'test_Opiate300_18 from column names
+    methadone_r.columns = [
+        col.replace("test_Opiate300_", "") for col in methadone_r.columns
+    ]
+
+    # sum the number of positive tests for each week
+    methadone_r = methadone_r.sum().to_frame("met_r")
+
+    # create series for patients who did not respond to treatment
+    methadone_nr = methadone_nr[
+        [col for col in methadone_nr.columns if "test_Opiate" in col]
+    ]
+
+    # remove 'test_Opiate300 from column names
+    methadone_nr.columns = [
+        col.replace("test_Opiate300_", "") for col in methadone_nr.columns
+    ]
+
+    # sum the number of positive tests for each week
+    methadone_nr = methadone_nr.sum().to_frame("met_nr")
+
+    # combine the two series into one df
+    methadone = pd.concat([methadone_r, methadone_nr], axis=1)
+
+    # add a column for total tests
+    methadone["all"] = methadone["met_r"] + methadone["met_nr"]
+
+    # create series for patients who took buprenorphine and responded to treatment
+    buprenorphine_r = buprenorphine_r[
+        [col for col in buprenorphine_r.columns if "test_Opiate" in col]
+    ]
+
+    # remove 'test_Opiate300_18 from column names
+    buprenorphine_r.columns = [
+        col.replace("test_Opiate300_", "") for col in buprenorphine_r.columns
+    ]
+
+    buprenorphine_r = buprenorphine_r.sum().to_frame("bup_r")
+
+    # create series for patients who took buprenorphine and did not respond to treatment
+    buprenorphine_nr = buprenorphine_nr[
+        [col for col in buprenorphine_nr.columns if "test_Opiate" in col]
+    ]
+
+    # remove 'test_Opiate300_18 from column names
+    buprenorphine_nr.columns = [
+        col.replace("test_Opiate300_", "") for col in buprenorphine_nr.columns
+    ]
+
+    # sum the number of positive tests for each week
+    buprenorphine_nr = buprenorphine_nr.sum().to_frame("bup_nr")
+
+    # combine the two series into one df
+    buprenorphine = pd.concat([buprenorphine_r, buprenorphine_nr], axis=1)
+
+    # add a column for the total number of tests
+    buprenorphine["all"] = buprenorphine["bup_r"] + buprenorphine["bup_nr"]
+
+    return methadone, buprenorphine

@@ -240,8 +240,12 @@ def series_func(df, group, agg="mean"):
     """
     # subset columns for data group specified
     df = df[[col for col in df.columns if group in col]]
-    # remove the column names and leave the week numbers for better visualization
-    df.columns = [col.split("_")[1] if "_" in col else col for col in df.columns]
+
+    # remove the prefix and feature name from the column names
+    df.columns = [
+        "_".join(col.split("_")[2:]) if len(col.split("_")) > 2 else col
+        for col in df.columns
+    ]
 
     # create condition for aggregation
     if agg == "mean":
@@ -265,7 +269,7 @@ def plot_func(series, title, ylabel, xlabel):
     """
     fig = plt.figure(figsize=(14, 4))
     # take input to plot in a loop with subplots
-    sns.barplot(x=series.index, y=series.values, color="gray")
+    sns.barplot(x=series.index, y=series.values.flatten(), color="gray")
     plt.axhline(y=series.mean(), color="black", linestyle="--")
     plt.title(title)
     plt.xlabel(xlabel)

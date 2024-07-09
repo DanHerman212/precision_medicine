@@ -225,13 +225,15 @@ def med_features(df):
     return df
 
 
-def series_func(df, group):
+def series_func(df, group, agg="mean"):
     """
     Create series from wide dataset, by specifying the
     data category your are looking for.
 
     Parameters:
+    df: pandas dataframe, data to be aggregated
     group: str, data category
+    agg: str, aggregation function
 
     Returns:
 
@@ -240,9 +242,14 @@ def series_func(df, group):
     df = df[[col for col in df.columns if group in col]]
     # remove the column names and leave the week numbers for better visualization
     df.columns = [col.split("_")[1] if "_" in col else col for col in df.columns]
-    # create series by calling the sum aggregator on the columns
-    df = df.sum()
-    return df
+
+    # create condition for aggregation
+    if agg == "mean":
+        series = df.mean()
+    elif agg == "sum":
+        series = df.sum()
+
+    return series
 
 
 def plot_func(series, title, ylabel, xlabel):
@@ -262,4 +269,49 @@ def plot_func(series, title, ylabel, xlabel):
     plt.axhline(y=series.mean(), color="black", linestyle="--")
     plt.title(title)
     plt.xlabel(xlabel)
-    plt.show(ylabel)
+    plt.ylabel(ylabel)
+
+
+def df_value_counts(df):
+    """
+    This function takes a DataFrame and returns a DataFrame with the value counts of each column.
+
+    Parameters:
+    df: pandas DataFrame
+
+
+    Returns:
+    pandas DataFrame
+
+    """
+
+    # Use a different variable name to avoid confusion
+    count_dfs = [df[col].value_counts().reset_index(name="count") for col in df.columns]
+
+    # Process each DataFrame in count_dfs
+    for temp_df in count_dfs:
+        temp_df["percentage"] = (temp_df["count"] / temp_df["count"].sum()).round(2)
+        temp_df.rename(columns={"index": "value"}, inplace=True)
+
+    # Instantiate a new DataFrame for the result
+    result_df = pd.DataFrame()
+
+    # Append the processed DataFrames to result_df
+    for i, temp_df in enumerate(count_dfs):
+        # Use pd.concat instead of append
+        result_df = pd.concat(
+            [
+                result_df,
+                pd.DataFrame(
+                    {
+                        "column": [df.columns[i]] * temp_df.shape[0],
+                        "value": temp_df.iloc[:, 0],
+                        "count": temp_df["count"],
+                        "percentage": temp_df["percentage"],
+                    }
+                ),
+            ],
+            ignore_index=True,
+        )
+
+    return result_df

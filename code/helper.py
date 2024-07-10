@@ -319,3 +319,140 @@ def df_value_counts(df):
         )
 
     return result_df
+
+
+def plot_weekly_data(df, drug_dict, group):
+    """
+    This function plots the weekly data for each drug class.
+
+    Parameters:
+    df: pandas DataFrame, data to be plotted
+    drug_dict: dict, dictionary with drug acronyms as keys and drug names as values
+
+    Returns:
+
+    """
+    # iterate through list of drug test names (9 totla)
+    for i, col in enumerate(df.columns):
+        # next 4 steps make variables available for each plot
+        drug_names = df.columns[i]  # this is a list available for plotting
+        # create condition for survey vs. tests
+        if group == "survey_":
+            title = f"{drug_dict[col]} Weekly Survey Responses"  # title argument for plot_func()
+        else:
+            title = f"{drug_dict[col]} Weekly Positive Tests"  # title argument for plot_func()
+        ylabel = "Number of Positive Tests"  # ylabel argument for plot_func()
+        xlabel = "Week of Treatment"  # xlabel argument for plot_func()
+
+        # the next 5 steps create the plot, apply annotation to project the insights to the user
+        if group == "survey_":
+            fig = plt.figure(figsize=(14, 4))
+            sns.barplot(
+                x=df.index, y=col, data=df, color="gray"
+            )  # use seaborn to create a barplot
+            plt.axhline(
+                df[col].mean(), color="red", linestyle="--", linewidth=1
+            )  # Add mean to show change from central tendency
+            plt.annotate(  # create a small text box showing a float with positive test rate
+                # create conditions for survey vs. tests
+                f"Weekly average {df[col].mean().round(2)} survey responses",
+                xy=(0.5, 0.5),
+                xycoords="axes fraction",
+                ha="center",
+                va="center",
+                fontsize=12,
+                color="black",
+                backgroundcolor="white",
+            )
+        else:
+            fig = plt.figure(figsize=(14, 4))
+            sns.barplot(
+                x=df.index, y=col, data=df, color="gray"
+            )  # use seaborn to create a barplot
+            plt.axhline(
+                df[col].mean(), color="red", linestyle="--", linewidth=1
+            )  # Add mean to show change from central tendency
+            plt.annotate(  # create a small text box showing a float with positive test rate
+                # create conditions for survey vs. tests
+                f"Weekly average {df[col].mean().round(2)} positive tests",
+                xy=(0.5, 0.5),
+                xycoords="axes fraction",
+                ha="center",
+                va="center",
+                fontsize=12,
+                color="black",
+                backgroundcolor="white",
+            )
+        # Add plot titles and labels
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+
+        plt.show()  # Display the plot
+
+
+def agg_weekly_data(df, group, agg):
+    """
+    This function aggregates the weekly data for a specified group of data.
+    The aggregated data will be organized in a dataframe, ideal for plotting
+    and extracting meaningful insights.
+
+    Parameters:
+    df: pandas DataFrame, data to be aggregated
+    group: str, data category e.g 'test', 'meds'
+    agg: str, aggregation function e.g. 'sum', 'mean'
+
+    Returns:
+    pandas DataFrame
+
+    """
+    # create a series for each drug class
+    import re
+
+    # subset data
+    weekly_data = df[[col for col in df.columns if col.startswith(group)]]
+
+    # Pull out the drug names for plotting
+
+    # set conditions for survey, vs. tests
+    if group == "survey_":
+        drug_cols = weekly_data.iloc[:, :10]
+    else:
+        drug_cols = weekly_data.iloc[:, :9]
+
+    # trim the column names to remove prefix and suffix
+    # the list comprehension uses regex to remove prefix and suffix
+    # an example would be transform test_Opiate300_1 to Opiate300
+    drug_cols = [re.sub(r"^.*?_(.*?)_.*$", r"\1", s) for s in drug_cols.columns]
+
+    # create acronyms for drugs in dataframe for easier reading
+    # an example would be transform Opiate300 to opi
+    # provides easier reading for the dataframe
+    acronym_cols = [col.lower()[:3] for col in drug_cols]
+
+    print("Series created for each drug class:")
+    # create a series for each drug class
+    for i in range(len(drug_cols)):
+        acronym = acronym_cols[i]  # get the acronym for the drug
+        drug = drug_cols[i]  # get the drug name
+        # set condition for survey vs. tests
+        if group == "survey_":
+            globals()[acronym] = series_func(df, "survey_" + drug, agg="sum").round(2)
+        else:
+            globals()[acronym] = series_func(df, group + drug, agg).round(2)
+
+        globals()[acronym] = globals()[acronym].to_frame(acronym)
+        print(acronym, "created with shape of:", globals()[acronym].shape)
+
+    # merge all series into one dataframe
+    merged_df = pd.concat([pro, amp, can, ben, mme, oxy, coc, met, opi], axis=1)
+
+    # create dict with full drug names and acronyms
+    drug_dict = dict(zip(acronym_cols, drug_cols))
+    print("Series created for each drug class:")
+    print()
+    print("drug_tests Dataframe:  Positive test rate per drug class")
+
+    plot_weekly_data(merged_df, drug_dict, group)
+
+    return merged_df, drug_dict

@@ -338,9 +338,9 @@ def plot_weekly_data(df, drug_dict, group):
         drug_names = df.columns[i]  # this is a list available for plotting
         # create condition for survey vs. tests
         if group == "survey_":
-            title = f"{drug_dict[col]} Weekly Survey Responses"  # title argument for plot_func()
+            title = f"{drug_dict[col].capitalize()} Monthly Instance of Self Reported Drug Use"  # title argument for plot_func()
         else:
-            title = f"{drug_dict[col]} Weekly Positive Tests"  # title argument for plot_func()
+            title = f"{drug_dict[col].capitalize()} Drug Screen: Positive Test Rate"  # title argument for plot_func()
         ylabel = "Number of Positive Tests"  # ylabel argument for plot_func()
         xlabel = "Week of Treatment"  # xlabel argument for plot_func()
 
@@ -355,7 +355,7 @@ def plot_weekly_data(df, drug_dict, group):
             )  # Add mean to show change from central tendency
             plt.annotate(  # create a small text box showing a float with positive test rate
                 # create conditions for survey vs. tests
-                f"Weekly average {df[col].mean().round(2)} survey responses",
+                f"Monthly average of {df[col].mean().round(2)} reported instances of {drug_dict[col].capitalize()} use",
                 xy=(0.5, 0.5),
                 xycoords="axes fraction",
                 ha="center",
@@ -374,7 +374,7 @@ def plot_weekly_data(df, drug_dict, group):
             )  # Add mean to show change from central tendency
             plt.annotate(  # create a small text box showing a float with positive test rate
                 # create conditions for survey vs. tests
-                f"Weekly average {df[col].mean().round(2)} positive tests",
+                f"Weekly average {df[col].mean().round(2)} positive test rate",
                 xy=(0.5, 0.5),
                 xycoords="axes fraction",
                 ha="center",

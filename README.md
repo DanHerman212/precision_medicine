@@ -1,4 +1,4 @@
-# Opioid Use Disorder: Using State of the Art Machine Learning, to Reduce Patient Dropout and Improve Outcomes
+# Opioid Use Disorder Treatment: Using State of the Art Machine Learning to Predict Treatment Response and Improve Outcomes
 
 
 <div align="center">

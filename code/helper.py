@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import re
 
 
 # clean df function
@@ -456,3 +457,59 @@ def agg_weekly_data(df, group, agg):
     plot_weekly_data(merged_df, drug_dict, group)
 
     return merged_df, drug_dict
+
+
+def search_suffix(col_name):
+    """
+    Function to check if the suffix of the column name is numerically <= 4
+    The suffix represents the week of treatment
+    we only want columns that include data from the first 4 weeks of treat
+
+    Parameters:
+    col_name (str): The column name to check
+
+    Returns:
+    bool: True if the suffix is <= 4, False
+
+    """
+    # Use the re module to search for a pattern at the end of the string
+    match = re.search(
+        r"(\d+)$", col_name
+    )  # Look for one or more digits at the end of the string
+    if match:
+        return (
+            int(match.group(1)) <= 4
+        )  # Convert the found digits to an integer and check if <= 4
+    return False
+
+
+def feature_selection(df, prefix, feature_list):
+    """
+    Selects features from tests and survey data to form granualar level data quality
+    when building data models for machine learning
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the tests and survey data.
+    feature_list (list): A list of drug names to select from the DataFrame.
+
+    Returns:
+    pandas.DataFrame: The selected features from the DataFrame.
+
+    """
+
+    matching_columns = [
+        col
+        for col in df.columns
+        if any(
+            col.startswith(prefix + drug) and search_suffix(col)
+            for drug in feature_list
+        )
+    ]
+
+    # Use the matching_columns list to select the columns from the DataFrame
+    tests = df[matching_columns]
+
+    print("Shape of tests DataFrame:", tests.shape)
+    display(tests)
+
+    return tests

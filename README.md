@@ -1,4 +1,4 @@
-# Opioid Use Disorder Treatment: Using State of the Art Machine Learning to Predict Treatment Response and Improve Outcomes
+# Precision Medicine: Applying State of the Art Machine Learning to Opioid Use Disorder Treatment
 
 
 <div align="center">

@@ -1,0 +1,7 @@
+column,value,count,percentage
+dsm_opiates,dependence,1128,0.85
+dsm_cocaine,dependence,223,0.17
+dsm_alcohol,dependence,66,0.05
+dsm_sedative,dependence,60,0.05
+dsm_cannabis,dependence,59,0.04
+dsm_amphetamine,dependence,40,0.03

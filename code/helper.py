@@ -513,3 +513,18 @@ def feature_selection(df, prefix, feature_list):
     display(tests)
 
     return tests
+
+
+import lifelines
+
+
+def cindex(y_true, scores):
+    """
+    Calculate the concordance index for the given true values and predicted scores.
+    Parameters:
+    y_true (array-like): The true values.
+    scores (array-like): The predicted scores.
+    Returns:
+    float: The concordance index.
+    """
+    return lifelines.utils.concordance_index(y_true, scores)

@@ -75,7 +75,7 @@ All functions are stored in the helper.py file in the `code` directory.<br>
 </font>
 
 # Shapley Values
-<div align="center"> <img src="images/shap.png" alt="Data Model"> </div>
+<div align="center"> <img src="images/shap.png" alt="Data Model" width=75% height=75%> </div>
 
 # File Directory
 <font size='4'>

@@ -71,7 +71,7 @@ All functions are stored in the helper.py file in the `code` directory.<br>
 
 # Machine Learning Pipelines
 <font size=4>The following workflow was executed in Python and can be referenced in a neatly documented Jupyter Notebook in the code directory.
-<div align="center"> <img src="images/pipelines.png" alt="Data Model"> </div>
+<div align="center"> <img src="images/pipelines.png" alt="Data Model" width=75% height=75%> </div>
 </font>
 
 # Shapley Values

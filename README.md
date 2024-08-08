@@ -49,7 +49,7 @@ Each table received between 5 - 8 different treatments, listed as follows:<bR>
 7. Flatten Dataframes (Reshape from deep to wide format)<br>
 8. Merge with other tables<br>
 <br>
-I created 5 reusable functions to automate most of the work, after the columns were labeled.  They are listed as follows:<br>
+I created 5 reusable functions to automate most of the work. They are listed as follows:<br>
 
 ## List of Reusable Functions
 All functions are stored in the helper.py file in the `code` directory.<br>
@@ -78,3 +78,7 @@ All functions are stored in the helper.py file in the `code` directory.<br>
 <div align="center"> <img src="images/shap.png" alt="Data Model"> </div>
 
 # File Directory
+<font size='4'>
+Please refer to the [file directory](pages/tree.md) below for the complete project structure.
+
+</font>

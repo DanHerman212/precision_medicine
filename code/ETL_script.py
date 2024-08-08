@@ -20,11 +20,10 @@
 # 2. Identify columns that require labels
 # 3. Apply labels to columns
 # 4. Drop columns that are not needed
-# 5. Create imputation strategy for missing values
 # 5. Apply transformations to values where required
-# 3. Feature Engineering (if necessary)
-# 4. Flatten Dataframes (encode week of treatment into columns, where applicable)
-# 4. Merge with other tables
+# 6. Feature Engineering (if necessary)
+# 7. Flatten Dataframes (encode week of treatment into columns, where applicable)
+# 8. Merge with other tables
  
 
 # ### Import Required Libraries

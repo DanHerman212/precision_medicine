@@ -79,6 +79,7 @@ All functions are stored in the helper.py file in the `code` directory.<br>
 
 # File Directory
 <font size='4'>
+
 Please refer to the [file directory](pages/tree.md) below for the complete project structure.
 
 </font>

@@ -23,6 +23,7 @@ I have provided a brief tutorial for each of the critical components of the proj
 
 # Results
 <font size='4'>I successfully trained a machine learning model to predict risk for dropout early in treatment with 85% accuracy at week 4 of a 32 week treatment period.<br> 
+<div align="center"> <img src="images/accuracy.png" alt="Data Model"> </div>
 <br>
 In order to train the model for accuracy, I built a high quality dataset, including data collected from patients during a pre-treatment assessment period and the first 4 weeks of treatment.<br>
 <br>

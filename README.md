@@ -77,6 +77,17 @@ All functions are stored in the helper.py file in the `code` directory.<br>
 # Shapley Values
 <div align="center"> <img src="images/shap.png" alt="Data Model" width=75% height=75%> </div>
 
+# Python Libraries
+The following libraries are required to run this project:
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- xgboost
+- shap
+
+
 # File Directory
 <font size='4'>
 

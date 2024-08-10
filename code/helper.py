@@ -550,7 +550,7 @@ def plot_confusion_matrix(
     cm = confusion_matrix(y_true, y_pred)
     if normalize:
         cm = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
-    else:        
+    else:
         pass
     fig, ax = plt.subplots()
     im = ax.imshow(cm, interpolation="nearest", cmap=cmap)
@@ -585,3 +585,49 @@ def plot_confusion_matrix(
             )
     fig.tight_layout()
     return ax
+
+
+def plot_feature_importance(model, X, metric="gain", num_features=19):
+    """
+    Plot the feature importance of a model.
+
+    Parameters:
+    - model: The trained model.
+    - X: The input features.
+    - metric: The feature importance metric to use (default: 'gain').
+    - num_features: The number of top features to plot (default: 19).
+
+    Returns:
+    - None (plots the feature importance).
+    """
+    # Get feature importances and round them
+    importances = model.get_booster().get_score(importance_type=metric)
+    importances_rounded = {k: round(v, 2) for k, v in importances.items()}
+
+    # Sort features by importance
+    sorted_importances = sorted(
+        importances_rounded.items(), key=lambda x: x[1], reverse=True
+    )[:num_features]
+
+    # Separate keys and values for plotting
+    features, scores = zip(*sorted_importances)
+
+    # Plot
+    plt.figure(figsize=(10, 8))
+    plt.barh(range(len(scores)), scores, color="lightgreen")
+    plt.yticks(range(len(scores)), features)
+    plt.xlabel("F Score")
+    plt.ylabel("Features")
+    # annotate the values over the bars
+    for i, v in enumerate(scores):
+        plt.text(v + 0.1, i - 0.1, str(v), color="black", va="center")
+    plt.title(
+        f'Feature Importance - {metric.capitalize().replace("_g", " G")}', fontsize=16
+    )
+    plt.gca().invert_yaxis()  # Invert y-axis to have the most important feature on top
+    # remove borders
+    plt.gca().spines["top"].set_visible(False)
+    plt.gca().spines["right"].set_visible(False)
+    plt.gca().spines["left"].set_visible(False)
+    plt.gca().spines["bottom"].set_visible(False)
+    plt.show()

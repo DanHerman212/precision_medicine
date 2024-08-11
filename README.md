@@ -7,7 +7,9 @@
 
 <br>
 
-# Project Introduction (Currently WIP, will be complete on 8/9/2024)
+# (Currently WIP, will be complete on 8/13/2024)
+
+# Project Introduction 
 <font size='4'>There is a public health crisis in the US where 6 million people are suffering from opioid use disorder (OUD).<br><br>
 There is a effective treatment available in the form of medication treatment for OUD (MOUD).<br>
 However, there are problems with patient dropout, where treatment is not personalized and 50% of patients relapse and don't complete treatment.<br>
@@ -21,16 +23,6 @@ To evaluate model accuracy I will use the concordance index.  A common metric us
 I have provided a brief tutorial for each of the critical components of the project, including data wrangling, exploratory analysis, machine learning pipelines, and shapley values.<br>
 </font>
 
-# Results
-<font size='4'>I successfully trained a machine learning model to predict risk for dropout early in treatment with 85% accuracy at week 4 of a 32 week treatment period.<br> 
-<div align="center"> <img src="images/accuracy.png" alt="Data Model"> </div>
-<br>
-In order to train the model for accuracy, I built a high quality dataset, including data collected from patients during a pre-treatment assessment period and the first 4 weeks of treatment.<br>
-<br>
-To find the best model, I built pipelines to feed 3 different classifiers.  The classifier with the best accuracy was XGBoost, a gradient boosted decision tree model, that shows superior accuracy for classification problems with structured data.<br>
-<br>
-To interpret the model output, I used the SHAP Python library, which uses Shapley values to explain the impact of key features on the model output.<br>
-</font>
 
 # Data Wrangling
 <font size='4'>The data wrangling process required labeling 11 different tables from a de-identified publicly available dataset.<br> 

@@ -631,3 +631,55 @@ def plot_feature_importance(model, X, metric="gain", num_features=19):
     plt.gca().spines["left"].set_visible(False)
     plt.gca().spines["bottom"].set_visible(False)
     plt.show()
+
+
+def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test):
+    """
+    create a pair of SHAP dependence plots for the given features.
+
+    Parameters:
+    - feature1: The name of the first feature.
+    - feature2: The name of the second feature.
+    - feature3: The name of the third feature.
+    - feature4: The name of the fourth feature.
+
+    - X_test: The test set.
+    - shap_values: The SHAP values for the test set.
+
+    Returns:
+    - None: This function displays a pair of SHAP dependence plots.
+
+    """
+    import shap
+
+    # Extract SHAP values for the dependence plot
+    shap_values_array = shap_values
+
+    # Create a figure with subplots
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+    # Plot the first SHAP dependence plot
+    shap.dependence_plot(
+        feature1,
+        shap_values_array[:, :, 1],
+        X_test,
+        interaction_index=feature2,
+        show=False,
+        ax=axes[0],
+    )
+    axes[0].set_title(f"Dependence Plot for {feature1}")
+
+    # Plot the second SHAP dependence plot
+    shap.dependence_plot(
+        feature3,
+        shap_values_array[:, :, 1],
+        X_test,
+        interaction_index=feature4,
+        show=False,
+        ax=axes[1],
+    )
+    axes[1].set_title(f"Dependence Plot for {feature3}")
+
+    # Show the plots
+    plt.tight_layout()
+    plt.show()

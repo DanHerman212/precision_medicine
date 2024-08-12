@@ -587,49 +587,65 @@ def plot_confusion_matrix(
     return ax
 
 
-def plot_feature_importance(model, X, metric="gain", num_features=19):
+def plot_feature_importance(model, preprocessor, X, metric="gain", num_features=25):
     """
     Plot the feature importance of a model.
 
     Parameters:
     - model: The trained model.
+    - preprocessor: The preprocessing ColumnTransformer.
     - X: The input features.
     - metric: The feature importance metric to use (default: 'gain').
-    - num_features: The number of top features to plot (default: 19).
+    - num_features: The number of top features to plot (default: 25).
 
     Returns:
     - None (plots the feature importance).
     """
-    # Get feature importances and round them
+    # Get feature importances
     importances = model.get_booster().get_score(importance_type=metric)
-    importances_rounded = {k: round(v, 2) for k, v in importances.items()}
+
+    # Extract feature names from the preprocessor
+    feature_names = []
+
+    for name, transformer, columns in preprocessor.transformers_:
+        if hasattr(transformer, "categories_"):
+            # OneHotEncoder case
+            for i, cat in enumerate(transformer.categories_):
+                feature_names.extend([f"{columns[i]}_{category}" for category in cat])
+        else:
+            feature_names.extend(columns)
+
+    # Map feature indices to feature names
+    importances_named = {feature_names[int(k[1:])]: v for k, v in importances.items()}
+
+    # Round importances
+    importances_rounded = {k: round(v, 2) for k, v in importances_named.items()}
 
     # Sort features by importance
     sorted_importances = sorted(
         importances_rounded.items(), key=lambda x: x[1], reverse=True
     )[:num_features]
 
-    # Separate keys and values for plotting
-    features, scores = zip(*sorted_importances)
+    # Create DataFrame for plotting
+    importance_df = pd.DataFrame(sorted_importances, columns=["Feature", "Importance"])
 
-    # Plot
-    plt.figure(figsize=(10, 8))
-    plt.barh(range(len(scores)), scores, color="lightgreen")
-    plt.yticks(range(len(scores)), features)
-    plt.xlabel("F Score")
-    plt.ylabel("Features")
-    # annotate the values over the bars
-    for i, v in enumerate(scores):
-        plt.text(v + 0.1, i - 0.1, str(v), color="black", va="center")
-    plt.title(
-        f'Feature Importance - {metric.capitalize().replace("_g", " G")}', fontsize=16
-    )
-    plt.gca().invert_yaxis()  # Invert y-axis to have the most important feature on top
-    # remove borders
-    plt.gca().spines["top"].set_visible(False)
-    plt.gca().spines["right"].set_visible(False)
-    plt.gca().spines["left"].set_visible(False)
-    plt.gca().spines["bottom"].set_visible(False)
+    # Plot the feature importances
+    plt.figure(figsize=(10, 6))
+    bars = plt.barh(importance_df["Feature"], importance_df["Importance"])
+    plt.xlabel("Importance")
+    plt.ylabel("Feature")
+    plt.title(f"Feature Importance - Gain")
+    plt.gca().invert_yaxis()  # Invert y-axis to have the most important feature at the top
+
+    # Annotate the bars with the importance values
+    for bar in bars:
+        plt.text(
+            bar.get_width(),
+            bar.get_y() + bar.get_height() / 2,
+            f"{bar.get_width():.2f}",
+            va="center",
+        )
+
     plt.show()
 
 

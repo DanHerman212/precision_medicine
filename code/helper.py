@@ -669,7 +669,6 @@ def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test)
     import shap
 
     # Extract SHAP values for the dependence plot
-    shap_values_array = shap_values
 
     # Create a figure with subplots
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
@@ -677,7 +676,7 @@ def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test)
     # Plot the first SHAP dependence plot
     shap.dependence_plot(
         feature1,
-        shap_values_array[:, :, 1],
+        shap_values,
         X_test,
         interaction_index=feature2,
         show=False,
@@ -688,7 +687,7 @@ def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test)
     # Plot the second SHAP dependence plot
     shap.dependence_plot(
         feature3,
-        shap_values_array[:, :, 1],
+        shap_values,
         X_test,
         interaction_index=feature4,
         show=False,

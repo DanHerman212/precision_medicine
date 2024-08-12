@@ -159,7 +159,7 @@ def uds_features(df):
     """
     # create df for opiates tests
     tests = df.loc[
-        :, ["patdeid"] + [col for col in df.columns if "test_Opiate300" in col]
+        :, ["patdeid"] + [col for col in df.columns if "test_opiate300" in col]
     ]
 
     # remove the prefix from the column names

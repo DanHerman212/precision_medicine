@@ -648,6 +648,8 @@ def plot_feature_importance(model, preprocessor, X, metric="gain", num_features=
 
     plt.show()
 
+    return importance_df
+
 
 def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test):
     """

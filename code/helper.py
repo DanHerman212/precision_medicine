@@ -213,15 +213,15 @@ def med_features(df):
     """
 
     # create new columns for methadone and buprenorphine dose
-    df["meds_methadone"] = df.loc[df.medication == 1.0]["total_dose"]
-    df["meds_buprenorphine"] = df.loc[df.medication == 2.0]["total_dose"]
+    df["meds_methadone"] = df.loc[df.medication == 1.0]["avg_daily_dose"]
+    df["meds_buprenorphine"] = df.loc[df.medication == 2.0]["avg_daily_dose"]
 
     # fill null values with 0
     df.meds_methadone.fillna(0, inplace=True)
     df.meds_buprenorphine.fillna(0, inplace=True)
 
     # drop original columns to remove redundancy
-    df = df.drop(columns=["total_dose", "medication"])
+    df = df.drop(columns=["avg_daily_dose", "medication"])
 
     return df
 

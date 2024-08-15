@@ -7,7 +7,7 @@
 
 <br>
 
-# (Currently WIP, will be complete on 8/16/2024)
+# (Currently WIP, will be complete on 8/21/2024)
 
 # Project Introduction 
 <font size='4'>There is a public health crisis in the US where 6 million people are suffering from opioid use disorder (OUD).<br><br>
@@ -16,7 +16,7 @@ However, there are problems with patient dropout, where treatment is not persona
 <br>
 A prognostic model that can predict risk for relapse early in treatment would be clinically useful.<br>
 <br>
-For this project, I built a prognostic model that can detect risk for relapse at week 4 of a 32 week treatment period.  I built a high quality dataset, using public dataset [CTN-0027](https://datashare.nida.nih.gov/study/nida-ctn-0027).  The dataset included treatment data for 1,321 patients, receiving treatment during a 32 week period.<br>
+For this project, I built a prognostic model that can detect risk for relapse at week 4 of a 32 week treatment period.  I built a high quality dataset, using public dataset [CTN-0027](https://datashare.nida.nih.gov/study/nida-ctn-0027).  The dataset included treatment data for 1,269 patients, receiving treatment during a 32 week period.<br>
 <br>
 To evaluate model accuracy I will use the concordance index.  A common metric used to measure the ability of a risk model to properly assign risk to patients with health outcomes.<br>
 <br>

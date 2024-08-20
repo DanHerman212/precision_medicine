@@ -700,3 +700,4 @@ def plot_dependence(feature1, feature2, feature3, feature4, shap_values, X_test)
     # Show the plots
     plt.tight_layout()
     plt.show()
+

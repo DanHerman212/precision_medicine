@@ -1,4 +1,4 @@
-# Precision Medicine: Applying State of the Art Machine Learning to Opioid Use Disorder Treatment
+# Precision Medicine: Improving Treatment for Opioid Use Disorder with Machine Learning
 
 
 <div align="center">

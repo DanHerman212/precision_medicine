@@ -23,10 +23,10 @@ To evaluate model accuracy I will use the concordance index.  A common metric us
 <br>
 
 # Key Implementations
-I have provided a brief tutorial for each of the critical components of the project and appropriate code, listed as follows:<br>
+Below is a table listing critical components for the project and appropriate code, listed as follows:<br>
 | Implementation | Description | Resource | Comments|
 |----------|----------|----------|----------|
-|Data Wrangling    |          |          |          |
+|Data Wrangling    |A high quality dataset was built capturing features through an end-to-end ETL pipeline.  There were a total of 7 tables that were added to the dataset with 5 transformations that were coded through reusable functions.          |    Jupyter Notebook      | Reusable functions are stored in helper.py file          |
 | Row 2    |          |          |          |
 | Row 3    |          |          |          |
 | Row 4    |          |          |          |
@@ -37,15 +37,6 @@ I have provided a brief tutorial for each of the critical components of the proj
 | Row 9    |          |          |          |
 | Row 10   |          |          |          |
 
-To create a table with 4 columns and 10 rows in Markdown, you can use the following syntax:
-
-
-
-
-
-This will create a table with 4 columns and 10 rows. You can replace the placeholders in each cell with your desired content.
-
-Remember to use the pipe character (`|`) to separate columns and hyphens (`-`) to create the table header.
 
 # Python Libraries
 The following libraries are required to run this project:

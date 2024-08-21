@@ -5,7 +5,7 @@
     <img src="images/cover.jpg" alt="Opioid Use Disorder Treatment Study">
 </div>
 
-<br>
+<br><br>
 
 
 # Project Introduction 

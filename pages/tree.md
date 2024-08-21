@@ -1,21 +1,14 @@
 ```bash
-.
 ├── README.md
 ├── US Synthetic Drug Crisis.docx
 ├── __pycache__
 │   └── helper.cpython-311.pyc
 ├── code
-│   ├── 0_statistical_test_sandbox.ipynb
-│   ├── 1_data_cleaning.ipynb
-│   ├── 2_exploratory_analysis.ipynb
-│   ├── 2_exploratory_analysis_v2.ipynb
-│   ├── 3_data_visualization.ipynb
-│   ├── 4_data_modeling.ipynb
-│   ├── 4_data_modeling_v2.ipynb
-│   ├── 4_data_modeling_v3.ipynb
-│   ├── 5_ML_pipelines.ipynb
-│   ├── 5_xAI_shapley_values_xgboost.ipynb
-│   ├── ETL_script.py
+│   ├── 1_Data_Transformation.ipynb
+│   ├── 2_Data_Modeling.ipynb
+│   ├── 3_Exploratory_Analysis.ipynb
+│   ├── 4_ML_Piplines.ipynb
+│   ├── 5_Explainable_AI.ipynb
 │   ├── __pycache__
 │   │   ├── analysis.ipynb
 │   │   ├── cleaner.cpython-311.pyc
@@ -24,15 +17,8 @@
 │   ├── guide_tabtransformer.ipynb
 │   └── helper.py
 ├── data
-│   ├── benchmark_df.csv
-│   ├── benchmark_features.csv
-│   ├── dsm
-│   │   ├── abuse.csv
-│   │   ├── dependence.csv
-│   │   └── no_diagnosis.csv
-│   ├── final_predictors.csv
-│   ├── merged_data.csv
-│   └── new_merged_data.csv
+│   ├── 42_features.csv
+│   └── final_merged_data.csv
 ├── documentation
 │   ├── 0027.pdf
 │   ├── 5.23.2024 NDTA-updated.pdf
@@ -43,27 +29,12 @@
 │   └── Slideware
 │       └── Decision Tree.pptx
 ├── images
-│   ├── Decision Tree
-│   │   └── Slide1.jpeg
-│   ├── accuracy.png
-│   ├── accuracy_report.png
-│   ├── bupe.png
 │   ├── cover.jpg
-│   ├── datamodel.png
-│   ├── flatten.png
-│   ├── methadone.png
-│   ├── non-responder.png
-│   ├── output.svg
-│   ├── pipelines.png
-│   ├── responder.png
-│   ├── shap.png
-│   ├── test.png
-│   ├── test_results.png
-│   ├── tests.png
-│   ├── uds.png
-│   └── workflow.png
+│   ├── tables.png
+│   └── ~$tables.pptx
 ├── pages
-│   └── data_dict.md
+│   ├── data_dict.md
+│   └── tree.md
 ├── tree.md
 └── unlabeled_data
     ├── AE.csv
@@ -123,6 +94,5 @@
     ├── T_FRTFB.csv
     ├── T_FRUDSAB.csv
     └── T_FRVSF.csv
-12 directories, 112 files
 
-```
+10 directories, 86 files

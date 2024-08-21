@@ -34,7 +34,7 @@ Below is a table listing critical components for the project and appropriate cod
 |Explainable AI |This is an implemenation for the SHAP library.  If you are familiar, there are are the standard plots for classification, including summary and waterfall plots.  There are some custom plots, including a 2 column feature interaction plot, as well as scatter plot.          |  [Jupyter Notebook](code/5_Explainable_AI.ipynb)        |I did not use the implementation for the project, so there is no documentation in the notebook, if you are interested in learning more about SHAP, I recommend getting [this book](https://christophmolnar.com/books/shap/).          |
 |Project Dataset   |Datset created for the project, includes 42 features.  Stored in the data directory, labeled as '42_features.csv'           |      [CSV file](data/42_features.csv)    |          |
 |Complete Dataset | Complete Dataset with 400+ features extracted from original public dataset [CTN-0027]()          |      [CSV File](data/final_merged_data.csv)    |          |
-|Reusable Functions   | There are a number of reusable functions used through out the project.  They can all be found in the `helper.py` file, located in the code directory.         |[helper.py](https://github.com/DanHerman212/precision_medicine/blob/main/code/helper.py)          |          |
+|Reusable Functions   | There are a number of reusable functions used through out the project.  They can all be found in the `helper.py` file, located in the code directory.         |[helper.py](code/helper.py)          |          |
 |Project Documentation   | All documentation from the public dataset and other documents gathered in reseaerching this project| [Documentation Folder](documentation/)
 <br>
 

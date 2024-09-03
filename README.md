@@ -10,7 +10,7 @@
 
 # Project Introduction 
 <font size='4'>There is a public health crisis in the US where 6 million people are suffering from opioid use disorder (OUD).<br><br>
-There is a effective treatment available in the form of medication treatment for OUD (MOUD).<br>
+There is effective treatment available in the form of medication treatment for OUD (MOUD).<br>
 However, there are problems with patient dropout, where treatment is not personalized and 50% of patients relapse and don't complete treatment.<br>
 <br>
 A prognostic model that can predict risk for relapse early in treatment would be clinically useful.<br>
